@@ -6,6 +6,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -52,8 +53,10 @@ public class FeedFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+        Log.d("Fragment", "onCreate");
         super.onCreate(savedInstanceState);
         SearchGitApplication.getApplication().getAppComponent().inject(this);
+        setRetainInstance(true);
     }
 
     @Nullable
